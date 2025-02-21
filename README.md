@@ -71,7 +71,3 @@ terraform destroy -auto-approve
 ## 📜 License
 
 This project is licensed under the MIT License.
-
----
-
-🚀 Happy Terraforming! 🎯
