@@ -2,7 +2,7 @@
 
 ## 🚀 Overview
 
-his project provisions an AWS infrastructure using Terraform. It sets up a **Virtual Private Cloud (VPC)** with an **internet gateway, subnet, security group**, and an **Ubuntu-based web server** running Apache.
+This project provisions an AWS infrastructure using Terraform. It sets up a **Virtual Private Cloud (VPC)** with an **internet gateway, subnet, security group**, and an **Ubuntu-based web server** running Apache.
 
 ## Infrastructure Setup
 
