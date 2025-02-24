@@ -170,16 +170,26 @@ resource "aws_instance" "web_server" {
   associate_public_ip_address = true
 
   user_data = <<-EOF
-              #!/bin/bash
-              sudo apt update -y
-              sudo apt install apache2 -y
-              sudo systemctl start apache2
-              sudo bash -c 'echo Server is running... > /var/www/html/index.html'
-              EOF
+    #!/bin/bash
+    sudo apt update -y
+    sudo apt install -y apache2 git
+    cd /tmp
+    git clone https://github.com/ricardoronchetti/bluespacerangers.git
+    sudo rm -rf /var/www/html/*
+    sudo cp -r bluespacerangers/* /var/www/html/
+    sudo chown -R www-data:www-data /var/www/html
+    sudo chmod -R 755 /var/www/html
+    sudo systemctl restart apache2
+    EOF
 
   tags = {
     Name = "web-server-instance"
     Environment = "Development"
     Project     = "Terraform Apache HTTP Server"
   }
+}
+
+output "website_url" {
+  description = "Access your deployed website here"
+  value       = "http://${aws_instance.web_server.public_ip}"
 }

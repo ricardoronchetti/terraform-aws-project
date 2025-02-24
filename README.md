@@ -2,7 +2,23 @@
 
 ## 🚀 Overview
 
-This project provisions an AWS infrastructure using Terraform. It sets up a Virtual Private Cloud (VPC) with an internet gateway, subnet, security group, and an Ubuntu-based web server with Apache installed.
+his project provisions an AWS infrastructure using Terraform. It sets up a **Virtual Private Cloud (VPC)** with an **internet gateway, subnet, security group**, and an **Ubuntu-based web server** running Apache.
+
+## Infrastructure Setup
+
+Once the server is up, it:
+
+1. Installs **Apache** and **Git**.
+2. Clones the repository: [bluespacerangers](https://github.com/ricardoronchetti/bluespacerangers).
+3. Moves project files to Apache’s web directory (`/var/www/html`).
+4. Sets proper ownership and permissions.
+5. Restarts Apache to serve the site immediately.
+
+## Accessing the Website
+
+After deployment, retrieve the **public IP** of the EC2 instance from AWS or simply copy the **website URL** displayed in the Terraform output. Then, open a browser and visit:
+
+👉 **http://<EC2_PUBLIC_IP>**
 
 ## 📌 Features
 
